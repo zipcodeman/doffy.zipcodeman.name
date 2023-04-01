@@ -7,7 +7,7 @@ body {
 
   grid-template:
     "header header header"
-    ". article ." / 1fr 600px 1fr;
+    ". article ." / 1fr minmax(calc(100vw - 80px), 600px) 1fr;
 }
 
 header {
@@ -19,6 +19,11 @@ header {
   gap: 5px;
   align-items: center;
   grid-area: header;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 .spacer {
@@ -35,16 +40,16 @@ header {
 }
 
 article {
+  padding: 40px;
   grid-area: article;
-  //   max-width: 450px;
 
   h1 {
     em {
-      font-size: 2rem;
+      font-size: clamp(1rem, 5vw, 3rem);
       display: block;
     }
     width: 100%;
-    font-size: 3.5rem;
+    font-size: clamp(1rem, 6vw, 3.5rem);
     text-align: right;
     margin-bottom: 0px;
   }
@@ -52,7 +57,7 @@ article {
   .byline {
     text-align: right;
     font-style: italic;
-    font-size: 1rem;
+    font-size: clamp(0.5rem, 2vw, 2rem);
   }
 
   p {
