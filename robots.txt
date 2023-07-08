@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://zipcodeman.github.io/doffy.zipcodeman.name/sitemap.xml
